@@ -5,6 +5,8 @@ class weatherAPI:
     lastTimeUpdated = datetime.datetime.now()
 
     def getTemperature(self):
+        weatherAPI().lastTimeUpdated = datetime.datetime.now()
+
         key = "c59712f4440365ed016958173d3b05cf"
         CITY = "Aarhus"
         BASE_URL = "https://api.openweathermap.org/data/2.5/weather?"
