@@ -4,7 +4,7 @@ import requests, datetime
 class weatherAPI:
     lastTimeUpdated = datetime.datetime.now()
 
-    def getWeather(self):
+    def getTemperature(self):
         key = "c59712f4440365ed016958173d3b05cf"
         CITY = "Aarhus"
         BASE_URL = "https://api.openweathermap.org/data/2.5/weather?"
@@ -18,3 +18,10 @@ class weatherAPI:
         now = datetime.datetime.now()
         differenceInSeconds = (now - weatherAPI().lastTimeUpdated).total_seconds()
         return differenceInSeconds
+
+if __name__ == "__main__":
+    weather = weatherAPI()
+    temperature = weather.getTemperature()
+    difference = weather.timeSinceLastUpdate()
+    print('Temperaturen er {}'.format(temperature))
+    print('Det blev tjekket for {} sekunder siden'.format(difference))
