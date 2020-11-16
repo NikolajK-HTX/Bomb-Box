@@ -1,6 +1,7 @@
 from APIvejr import weatherAPI
 import os
 import datetime
+import time
 if os.name != "nt":  # importeres kun hvis programmet ikke køres på windows
     import grovepi
 
@@ -14,3 +15,5 @@ while True:
     if vejr.timeSinceLastUpdate() > 120:
         temperatur = vejr.getTemperature()
         print("Temperaturen er {} grader.".format(temperatur))
+
+    time.sleep(0.01)
