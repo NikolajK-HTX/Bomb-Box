@@ -4,6 +4,8 @@ import datetime
 import time
 if os.name != "nt":  # importeres kun hvis programmet ikke køres på windows
     import grovepi
+import display
+
 
 vejr = weatherAPI()
 temperatur = vejr.getTemperature()
