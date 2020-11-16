@@ -5,7 +5,7 @@ class weatherAPI:
     lastTimeUpdated = datetime.datetime.now()
 
     def getTemperature(self):
-        weatherAPI().lastTimeUpdated = datetime.datetime.now()
+        weatherAPI.lastTimeUpdated = datetime.datetime.now()
 
         key = "c59712f4440365ed016958173d3b05cf"
         CITY = "Aarhus"
@@ -18,7 +18,7 @@ class weatherAPI:
 
     def timeSinceLastUpdate(self):
         now = datetime.datetime.now()
-        differenceInSeconds = (now - weatherAPI().lastTimeUpdated).total_seconds()
+        differenceInSeconds = (now - weatherAPI.lastTimeUpdated).total_seconds()
         return differenceInSeconds
 
 if __name__ == "__main__":
