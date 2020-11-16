@@ -20,8 +20,11 @@ class weatherAPI:
         return differenceInSeconds
 
 if __name__ == "__main__":
+    import time
+
     weather = weatherAPI()
     temperature = weather.getTemperature()
+    time.sleep(2)
     difference = weather.timeSinceLastUpdate()
-    print('Temperaturen er {}'.format(temperature))
+    print('Temperaturen er {} grader celsius'.format(temperature))
     print('Det blev tjekket for {} sekunder siden'.format(difference))
