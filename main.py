@@ -27,7 +27,7 @@ while True:
         print("Temperaturen er {} grader.".format(temperatur))
 
     led1.on(1)
-    if button1.buttonCheck() and button1Timer.isDone():
+    if button1.buttonCheck() and not button1Timer.started and button1Timer.isDone():
         if not buttonPressed:
             button1Timer.start()
             buttonPressed = True
