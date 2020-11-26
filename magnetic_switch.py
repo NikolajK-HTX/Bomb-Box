@@ -21,6 +21,8 @@ class MagneticSwitch:
 if __name__ == "__main__":
     magnetswitch = MagneticSwitch(6, "rød")
     while True:
-        if magnetswitch.getValue():
+        if magnetswitch.getValue() == 1:
             print("En magnet er tæt på, Joe!")
+        else:
+            print("magneten er længere væk")
         time.sleep(0.2)
