@@ -17,15 +17,17 @@ vejr = WeatherAPI()
 temperatur = vejr.getTemperature()
 print("Temperaturen er {} grader.".format(temperatur))
 
-# første led på D1
-led1 = LED(2)
-button1 = button(4)
-button1Timer = Timer(2)
+led1 = LED(2) # led connected to D2
+
+button1 = button(4) # button connected to D4
+button1Timer = Timer(2) # hold down button in 2 seconds
 buttonPressed = False
+
 serialNumber = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(6))
 serialNumber += random.choice(string.digits)
-print(serialNumber)
+print("Serienummeret er {}".format(serialNumber))
 
+display.setText("Temp: {} \n#: {}".format(temperatur, serialNumber))
 
 while True:
     # opdater temperaturen hvert andet minut
