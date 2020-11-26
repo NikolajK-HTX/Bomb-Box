@@ -10,14 +10,13 @@ from LED import LED, Timer
 from magnetic_switch import MagneticSwitch
 
 
-
 vejr = WeatherAPI()
 temperatur = vejr.getTemperature()
 print("Temperaturen er {} grader.".format(temperatur))
 
 # første led på D1
-led1 = LED(1)
-button1 = button(2)
+led1 = LED(2)
+button1 = button(4)
 button1Timer = Timer(2)
 buttonPressed = False
 
@@ -34,9 +33,10 @@ while True:
             buttonPressed = True
         else:
             print("Du holdte knappen nede i 2 sekunder!")
-        
-
-
+    if not button1.buttonCheck() and buttonPressed:
+        button1Timer.stop()
+        buttonPressed = False
+        print("Du trykker ikke længere på knappen")
 
     # ellers overarbejder processoren
     time.sleep(0.01)

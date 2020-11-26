@@ -12,3 +12,4 @@ class button():
             # print()
         except IOError:
             print("Error")
+        return self.buttonState

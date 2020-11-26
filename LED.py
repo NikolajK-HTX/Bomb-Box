@@ -45,13 +45,22 @@ class Timer():
     def __init__(self, time):
         self.time = time
         self.timeUntil = datetime.datetime.now()
+        self.started = False
     
     def start(self):
         self.timeUntil = datetime.datetime.now() + datetime.timedelta(seconds=self.time)
+        self.started = True
     
     def isDone(self):
         done = datetime.datetime.now() >= self.timeUntil
+        if done: 
+            self.started = False
         return done
+    
+    def stop(self):
+        self.timeUntil = datetime.datetime.now()
+        self.time = 0
+        self.started = False
 
 
 if __name__ == "__main__":
