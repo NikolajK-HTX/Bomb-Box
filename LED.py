@@ -57,7 +57,6 @@ class Timer():
     
     def stop(self):
         self.timeUntil = datetime.datetime.now()
-        self.time = 0
         self.started = False
 
 
