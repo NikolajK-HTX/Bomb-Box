@@ -32,7 +32,7 @@ while True:
         if not buttonPressed:
             button1Timer.start()
             buttonPressed = True
-        if buttonPressed and button1Timer.started:
+        elif buttonPressed and button1Timer.started:
             button1Timer.stop()
             print("Du holdte knappen nede i 2 sekunder!")
     if not button1.buttonCheck() and buttonPressed:
