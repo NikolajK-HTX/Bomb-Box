@@ -29,8 +29,8 @@ while True:
 
     led1.on(1)
     if button1.buttonCheck() and button1Timer.isDone():
-        print("Du trykkede på knappen")
         if not buttonPressed:
+            print("Du trykkede på knappen")
             button1Timer.start()
             buttonPressed = True
         elif buttonPressed and button1Timer.started:
