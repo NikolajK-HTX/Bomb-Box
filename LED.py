@@ -36,9 +36,16 @@ class LED():
 
             except KeyboardInterrupt:  # Turn LED off before stopping
                 digitalWrite(self.led, 0)
-                # print()
+
             except IOError:  # Print "Error" if communication error encountered
                 print("Error")
+
+    def off(self):
+        try:
+            digitalWrite(self.led, 0)  # Send LOW to switch off LED
+            print("LED OFF!")
+        except IOError:  # Print "Error" if communication error encountered
+            print("Error")
 
 
 class Timer():
