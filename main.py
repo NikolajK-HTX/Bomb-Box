@@ -22,7 +22,8 @@ led1 = LED(2)
 button1 = button(4)
 button1Timer = Timer(2)
 buttonPressed = False
-serialNumber = "".join(random.choices(string.ascii_uppercase + string.digits, k=6)) + random.choice(string.digits)
+serialNumber = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(6))
+serialNumber += random.choice(string.digits)
 print(serialNumber)
 
 
