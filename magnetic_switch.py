@@ -15,3 +15,11 @@ class MagneticSwitch:
         except IOError:
             print("Error with reading magnetic switch")
         return myValue
+
+
+if __name__ == "__main__":
+    magnetswitch = MagneticSwitch(6)
+    while True:
+        if magnetswitch.getValue():
+            print("En magnet er tæt på, Joe!")
+        time.sleep(0.2)
