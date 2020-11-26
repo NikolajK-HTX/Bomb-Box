@@ -9,6 +9,8 @@ import display
 from button import button
 from LED import LED, Timer
 from magnetic_switch import MagneticSwitch
+import string
+import random
 
 
 vejr = WeatherAPI()
@@ -20,6 +22,9 @@ led1 = LED(2)
 button1 = button(4)
 button1Timer = Timer(2)
 buttonPressed = False
+serialNumber = "".join(random.choices(string.ascii_uppercase + string.digits, k=6)) + random.choice(string.digits)
+print(serialNumber)
+
 
 while True:
     # opdater temperaturen hvert andet minut
