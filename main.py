@@ -28,11 +28,12 @@ while True:
         print("Temperaturen er {} grader.".format(temperatur))
 
     led1.on(1)
-    if button1.buttonCheck() and not button1Timer.started and button1Timer.isDone():
+    if button1.buttonCheck() and button1Timer.isDone():
         if not buttonPressed:
             button1Timer.start()
             buttonPressed = True
-        else:
+        if buttonPressed and button1Timer.started:
+            button1Timer.stop()
             print("Du holdte knappen nede i 2 sekunder!")
     if not button1.buttonCheck() and buttonPressed:
         button1Timer.stop()

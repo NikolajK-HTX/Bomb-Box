@@ -53,8 +53,6 @@ class Timer():
     
     def isDone(self):
         done = datetime.datetime.now() >= self.timeUntil
-        if done: 
-            self.started = False
         return done
     
     def stop(self):
