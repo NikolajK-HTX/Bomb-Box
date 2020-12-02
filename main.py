@@ -27,7 +27,7 @@ serialNumber = ''.join(random.choice(string.ascii_uppercase + string.digits) for
 serialNumber += random.choice(string.digits)
 print("Serienummeret er {}".format(serialNumber))
 
-display.setText("Temp: {} \n#: {}".format(temperatur, serialNumber))
+display.setText("Temp: {} \n#{}".format(temperatur, serialNumber))
 
 while True:
     # opdater temperaturen hvert andet minut
