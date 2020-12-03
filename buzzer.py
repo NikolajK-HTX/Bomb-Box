@@ -21,8 +21,8 @@ class BuzzerCountdown:
         
         if self.totalOnTime - time.time() <= 10 and self.interval != 1:
             self.interval = 1
-        if self.totalOnTime - time.time() <= 5 and self.interval != 0.6:
-            self.interval = 0.6
+        if self.totalOnTime - time.time() <= 5 and self.interval != 0.4:
+            self.interval = 0.4
 
     def off(self):
         grovepi.digitalWrite(self.pin, 0)
