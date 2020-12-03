@@ -15,6 +15,7 @@ class BuzzerCountdown:
             grovepi.digitalWrite(self.pin, 1)
         elif (time.time() - (time.time() + self.count * 5) >= 0.2) and self.buzz:
             self.buzz = False
+            self.count += 1
             grovepi.digitalWrite(self.pin, 0)
 
         
