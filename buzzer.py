@@ -19,9 +19,9 @@ class BuzzerCountdown:
             self.lastBuzz = time.time()
             self.isOn = False
         
-        if self.totalOnTime - time.time() >= 10 and self.interval != 1:
+        if self.totalOnTime - time.time() <= 10 and self.interval != 1:
             self.interval = 1
-        if self.totalOnTime - time.time() >= 5 and self.interval != 0.6:
+        if self.totalOnTime - time.time() <= 5 and self.interval != 0.6:
             self.interval = 0.6
 
 
