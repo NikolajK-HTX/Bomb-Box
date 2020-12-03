@@ -2,11 +2,10 @@ import grovepi
 import time
 
 class BuzzerCountdown:
-    def __init__(self, pin, TotalMinutes, interval):
+    def __init__(self, pin, totalTimeOn, interval):
         self.pin = pin
         grovepi.pinMode(self.pin, "OUTPUT")
-        self.Total = TotalMinutes
-        self.timeTotalStart = time.time()
+        self.totalOnTime = totalTimeOn*60+time.time()
         self.lastBuzz = time.time()
         self.interval = interval
         self.isOn = False
@@ -20,8 +19,8 @@ class BuzzerCountdown:
             self.lastBuzz = time.time()
             self.isOn = False
         
-    def changeInterval(self, interval):
-        self.interval = interval
+        if time.time() - self.totalOnTime >= 10:
+            self.interval = 1
 
 
         

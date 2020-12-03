@@ -24,7 +24,7 @@ button1 = button(4) # button connected to D4
 button1Timer = Timer(2) # hold down button in 2 seconds
 buttonPressed = False
 
-buzzer = BuzzerCountdown(6, 5, 5)
+buzzer = BuzzerCountdown(6, 0.5, 5)
 
 serialNumber = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(6))
 serialNumber += random.choice(string.digits)
