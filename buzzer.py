@@ -15,6 +15,7 @@ class BuzzerCountdown:
             grovepi.digitalWrite(self.pin, 1)
         if time.time() >= self.lastBuzz + self.interval + 0.2:
             grovepi.digitalWrite(self.pin, 0)
+            self.lastBuzz = time.time()
         
     def changeInterval(self, interval):
         self.interval = interval
