@@ -9,16 +9,16 @@ class BuzzerCountdown:
         self.timeTotalStart = time.time()
         self.lastBuzz = time.time()
         self.interval = interval
-        self.on = False
+        self.isOn = False
     
     def on(self):
-        if time.time() >= self.lastBuzz + self.interval and not self.on:
+        if time.time() >= self.lastBuzz + self.interval and not self.isOn:
             grovepi.digitalWrite(self.pin, 1)
-            self.on = True
-        if time.time() >= self.lastBuzz + self.interval + 0.2 and self.on:
+            self.isOn = True
+        if time.time() >= self.lastBuzz + self.interval + 0.2 and self.isOn:
             grovepi.digitalWrite(self.pin, 0)
             self.lastBuzz = time.time()
-            self.on = False
+            self.isOn = False
         
     def changeInterval(self, interval):
         self.interval = interval
