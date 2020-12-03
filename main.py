@@ -9,6 +9,7 @@ import display
 from button import button
 from LED import LED, Timer
 from magnetic_switch import MagneticSwitch
+from buzzer import BuzzerCountdown
 import string
 import random
 
@@ -22,6 +23,8 @@ led1 = LED(2) # led connected to D2
 button1 = button(4) # button connected to D4
 button1Timer = Timer(2) # hold down button in 2 seconds
 buttonPressed = False
+
+buzzer = BuzzerCountdown(6, 5, 5)
 
 serialNumber = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(6))
 serialNumber += random.choice(string.digits)
@@ -37,6 +40,8 @@ while True:
     if vejr.timeSinceLastUpdate() > 120:
         temperatur = vejr.getTemperature()
         print("Temperaturen er {} grader.".format(temperatur))
+
+    buzzer.on()
 
     if buttonDefused == False:
         led1.on(1)
