@@ -51,6 +51,7 @@ while True:
             print("Du holdte knappen nede i 2 sekunder!")
             buttonDefused = True
             led1.off()
+            break
     if not button1.buttonCheck() and buttonPressed:
         button1Timer.stop()
         buttonPressed = False
@@ -58,3 +59,4 @@ while True:
 
     # ellers overarbejder processoren
     time.sleep(0.01)
+print("Du har vundet")
