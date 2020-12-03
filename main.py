@@ -64,4 +64,6 @@ while True:
 
     # ellers overarbejder processoren
     time.sleep(0.01)
+
+buzzer.off()
 print("Du har vundet")
