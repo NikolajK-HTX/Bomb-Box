@@ -69,7 +69,7 @@ class Timer():
 
 if __name__ == "__main__":
     print("Startet")
-    led1 = LED(1)
+    led1 = LED(2)
     while True:
         led1.on(1)
         time.sleep(0.05)
