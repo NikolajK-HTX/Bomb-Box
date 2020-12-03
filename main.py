@@ -29,13 +29,17 @@ print("Serienummeret er {}".format(serialNumber))
 
 display.setText("Temp: {} \n#{}".format(temperatur, serialNumber))
 
+buttonDefused = False
+
 while True:
     # opdater temperaturen hvert andet minut
     if vejr.timeSinceLastUpdate() > 120:
         temperatur = vejr.getTemperature()
         print("Temperaturen er {} grader.".format(temperatur))
 
-    led1.on(1)
+    if buttonDefused == False:
+        led1.on(1)
+
     if button1.buttonCheck() and button1Timer.isDone():
         if not buttonPressed:
             print("Du trykkede på knappen")
@@ -44,6 +48,8 @@ while True:
         elif buttonPressed and button1Timer.started:
             button1Timer.stop()
             print("Du holdte knappen nede i 2 sekunder!")
+            buttonDefused = True
+            led1.off()
     if not button1.buttonCheck() and buttonPressed:
         button1Timer.stop()
         buttonPressed = False
