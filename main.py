@@ -28,6 +28,7 @@ serialNumber += random.choice(string.digits)
 print("Serienummeret er {}".format(serialNumber))
 
 display.setText("Temp: {} \n#{}".format(temperatur, serialNumber))
+display.setRGB(255, 0, 0)
 
 buttonDefused = False
 
