@@ -63,7 +63,7 @@ while True:
         print("Du trykker ikke længere på knappen")
 
     # ellers overarbejder processoren
-    time.sleep(0.01)
+    time.sleep(0.001)
 
 buzzer.off()
 print("Du har vundet")
