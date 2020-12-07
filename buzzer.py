@@ -23,7 +23,7 @@ class BuzzerCountdown:
             buzzTimer = self.totalOnTime - time.time()
             if buzzTimer <= 1:
                 buzzTimer = 1
-            self.interval = abs(3*math.log10())
+            self.interval = abs(3*math.log10(buzzTimer))
 
 
     def off(self):
