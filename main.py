@@ -56,6 +56,7 @@ while True:
             print("Du holdte knappen nede i 2 sekunder!")
             buttonDefused = True
             led1.off()
+            display.setText("BOMB DEFUSED")
             break
     if not button1.buttonCheck() and buttonPressed:
         button1Timer.stop()
