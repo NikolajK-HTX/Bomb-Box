@@ -14,6 +14,10 @@ import string
 import random
 
 
+# Set the duration of the game in minutes
+gameDuration = 2
+timeGameStarted = time.time()
+
 vejr = WeatherAPI()
 temperatur = vejr.getTemperature()
 print("Temperaturen er {} grader.".format(temperatur))
@@ -24,7 +28,7 @@ button1 = button(4) # button connected to D4
 button1Timer = Timer(2) # hold down button in 2 seconds
 buttonPressed = False
 
-buzzer = BuzzerCountdown(6, 1, 5)
+buzzer = BuzzerCountdown(6, gameDuration, 5)
 
 serialNumber = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(6))
 serialNumber += random.choice(string.digits)
@@ -34,6 +38,8 @@ display.setText("Temp: {} \n#{}".format(temperatur, serialNumber))
 display.setRGB(255, 0, 0)
 
 buttonDefused = False
+
+won = False
 
 while True:
     # opdater temperaturen hvert andet minut
@@ -55,16 +61,26 @@ while True:
             button1Timer.stop()
             print("Du holdte knappen nede i 2 sekunder!")
             buttonDefused = True
-            led1.off()
-            display.setText("BOMB DEFUSED")
+            won = True
             break
     if not button1.buttonCheck() and buttonPressed:
         button1Timer.stop()
         buttonPressed = False
         print("Du trykker ikke længere på knappen")
 
+    if time.time() - timeGameStarted >= gameDuration*60:
+        won = False
+        break
+
     # ellers overarbejder processoren
     time.sleep(0.001)
 
 buzzer.off()
-print("Du har vundet")
+led1.off()
+
+if won:
+    print("Du har vundet")
+    display.setText("BOMB DEFUSED")
+else:
+    print("Du har tabt")
+    display.setText("BOMB EXPLODED")
