@@ -21,9 +21,9 @@ class BuzzerCountdown:
             self.isOn = False
             # opdater tid interval
             buzzTimer = self.totalOnTime - time.time()
-            if buzzTimer <= 4.71:
-                buzzTimer = 4.71
-            self.interval = math.log10(buzzTimer+4)*5 - 4.5
+            if buzzTimer <= 3.32:
+                buzzTimer = 3.32
+            self.interval = math.log10(buzzTimer+5)*5 - 4.5
             print("Timer: {} og Buzz: {}".format(self.totalOnTime - time.time(), self.interval))
 
 
