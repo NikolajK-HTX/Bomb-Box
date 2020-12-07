@@ -24,6 +24,7 @@ class BuzzerCountdown:
             if buzzTimer <= 1:
                 buzzTimer = 1
             self.interval = abs(3*math.log10(buzzTimer))
+            print("Timer: {} og Buzz: {}".format(buzzTimer, self.interval))
 
 
     def off(self):
