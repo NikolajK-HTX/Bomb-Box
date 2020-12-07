@@ -23,7 +23,7 @@ class BuzzerCountdown:
             buzzTimer = self.totalOnTime - time.time()
             if buzzTimer <= 0.2:
                 buzzTimer = 0.2
-            self.interval = abs(0*buzzTimer^5 - 0.00001*buzzTimer^4 + 0.00012*buzzTimer^3 + 0.00319*buzzTimer^2 + 0.03283*buzzTimer + 0.02705)
+            self.interval = abs(0*buzzTimer**5 - 0.00001*buzzTimer**4 + 0.00012*buzzTimer**3 + 0.00319*buzzTimer**2 + 0.03283*buzzTimer + 0.02705)
             print("Timer: {} og Buzz: {}".format(buzzTimer, self.interval))
 
 
