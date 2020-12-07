@@ -19,7 +19,11 @@ class BuzzerCountdown:
             grovepi.digitalWrite(self.pin, 0)
             self.lastBuzz = time.time()
             self.isOn = False
-            self.interval = abs(3*math.log10(self.totalOnTime - time.time()))
+            # opdater tid interval
+            buzzTimer = self.totalOnTime - time.time()
+            if buzzTimer <= 1:
+                buzzTimer = 1
+            self.interval = abs(3*math.log10())
 
 
     def off(self):
