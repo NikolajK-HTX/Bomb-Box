@@ -15,16 +15,16 @@ class BuzzerCountdown:
         if time.time() >= self.lastBuzz + self.interval and not self.isOn:
             grovepi.digitalWrite(self.pin, 1)
             self.isOn = True
-        if time.time() >= self.lastBuzz + self.interval + 0.2 and self.isOn:
+        if time.time() >= self.lastBuzz + self.interval + 0.15 and self.isOn:
             grovepi.digitalWrite(self.pin, 0)
             self.lastBuzz = time.time()
             self.isOn = False
             # opdater tid interval
             buzzTimer = self.totalOnTime - time.time()
-            if buzzTimer <= 9.12:
-                buzzTimer = 9.12
-            self.interval = math.log10(buzzTimer)*5 - 4.5
-            print("Timer: {} og Buzz: {}".format(buzzTimer, self.interval))
+            if buzzTimer <= 3.32:
+                buzzTimer = 3.32
+            self.interval = math.log10(buzzTimer+5)*5 - 4.5
+            print("Timer: {} og Buzz: {}".format(self.totalOnTime - time.time(), self.interval))
 
 
     def off(self):
